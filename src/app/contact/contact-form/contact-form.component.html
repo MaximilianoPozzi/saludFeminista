@@ -1,0 +1,39 @@
+<div id="contact-form">
+  <div id="container">
+    <p>Complete los campos a continuación:</p>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text"
+               class="form-control"
+               id="name"
+               formControlName="name">
+      </div>
+      <p *ngIf="emptyName">Usted debe completar este campo.</p>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text"
+               class="form-control"
+               id="email"
+               formControlName="email">
+      </div>
+      <p *ngIf="emptyEMail">Usted debe completar este campo.</p>
+      <p *ngIf="invalidEmail">Por favor ingrese un formato válido de mail.</p>
+      <div class="form-group">
+        <div id="messageTextArea">
+          <label for="message" id="messageLabel">Mensaje</label>
+          <textarea name="message"
+                    placeholder="Ingrese su mensaje aquí..."
+                    id="message"
+                    formControlName="message"
+                    cols="65" rows="10"></textarea>
+        </div>
+      </div>
+      <p *ngIf="longEnoughMessage">Usted debe escribir al menos 20 caracteres.</p>
+
+      <button type="submit" role="button" class="btn btn-purple btn-lg">Enviar</button>
+    </form>
+
+  </div>
+</div>

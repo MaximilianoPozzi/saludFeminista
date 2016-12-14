@@ -1,0 +1,18 @@
+{
+  "opinions":[{
+    "doctorId": 1243,
+    "name": "Miguel Fernandez",
+    "rating": 4.0,
+    "commentary": "Fue muy amable conmigo y me orientó acerca del cambio de sexo"
+  },{
+    "doctorId": 3236,
+    "name": "Ronaldo Brindisi",
+    "rating": 0.0,
+    "commentary": "Un desubicxado. Quiso propasarse conmigo"
+  },{
+    "doctorId": 3721,
+    "name": "Joaquín Pagliatti",
+    "rating": 3.5,
+    "commentary": "Me hizo sentir muy cómoda aunque tenía un trato bastante frío."
+  }]
+}

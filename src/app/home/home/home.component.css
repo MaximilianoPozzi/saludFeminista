@@ -1,0 +1,9 @@
+.highlights{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home-feature{
+  min-height: 70vh;
+}
