@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
+import {Router} from "@angular/router";
+import {DoctorService} from "../doctor.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-doctor',
   templateUrl: './doctor.component.html',
   styleUrls: ['./doctor.component.css']
 })
-export class DoctorComponent implements OnInit {
+export class DoctorComponent implements OnDestroy{
 
-  constructor() { }
+  private doctor;
+  private routerSubscription: Subscription;
 
-  ngOnInit() {
+  constructor(private doctorService: DoctorService, private router: Router) {
+    this.routerSubscription = this.router.events.subscribe(val =>
+      this.doctorService.getDoctor().subscribe(doctor => {
+          this.doctor = doctor;
+          console.log(doctor);
+        }
+      )
+    )
   }
 
+  ngOnDestroy(){
+    this.routerSubscription.unsubscribe();
+  }
 }

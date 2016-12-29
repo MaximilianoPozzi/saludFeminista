@@ -1,0 +1,30 @@
+{"results":[{
+  "id": 12345,
+  "name": "Juan Carlos Lopez",
+  "province": "Córdoba",
+  "city": "Huerta Grande",
+  "avgRating": 3.7,
+  "ratingsNum": 3
+  },{
+  "id": 63124,
+  "name": "Mariela Rodriguez",
+  "province": "Santa Fe",
+  "city": "Rosario",
+  "avgRating": 4.5,
+  "ratingsNum": 4
+  },{
+  "id": 96215,
+  "name": "Susana Miguens",
+  "province": "La Rioja",
+  "city": "Anillaco",
+  "avgRating": 2.5,
+  "ratingsNum": 1
+},{
+  "id": 31456,
+  "name": "Rodrigo Grives",
+  "province": "Chubut",
+  "city": "Viedma",
+  "avgRating": 4.0,
+  "ratingsNum": 2
+}]
+}

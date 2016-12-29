@@ -1,0 +1,18 @@
+{"doctor":{
+  "id": 12345,
+  "name": "Juan Carlos Lopez",
+  "province": "Córdoba",
+  "city": "Huerta Grande",
+  "avgRating": 3.7,
+  "ratingsNum": 3,
+  "ratingsAndCommentaries": [{
+    "rating": 4.5,
+    "commentary":"Muy bueno su trato, cero intimidante"
+  },{
+    "rating": 1.5,
+    "commentary":"Desde que entré a su consultorio no dejó de mirarme las tetas. Un baboso"
+  },{
+    "rating": 5.0,
+    "commentary":"¡Un genio! Me explicó sin ningún problema todo sobre los métodos de profilaxis"
+  }]
+}}

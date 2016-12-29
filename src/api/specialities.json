@@ -1,0 +1,18 @@
+{"specialities":[
+  {
+    "id": 1,
+    "name": "Medicina Clínica"
+  },{
+    "id": 2,
+    "name": "Ginecología"
+  },{
+    "id": 3,
+    "name": "Patología Mamaria"
+  },{
+    "id": 4,
+    "name": "Traumatología"
+  },{
+    "id": 5,
+    "name": "Kinesiología"
+  }
+]}

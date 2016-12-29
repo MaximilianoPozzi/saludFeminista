@@ -1,0 +1,51 @@
+{"citiesByProvince":{
+  "1":[{
+    "id": 1,
+    "name": "Villa María"
+    },{
+    "id": 2,
+    "name":"Cosquín"
+    },{
+    "id": 3,
+    "name":"Oncativo"
+    },{
+    "id": 4,
+    "name":"Córdoba"
+    },{
+    "id": 5,
+    "name":"La Falda"
+    }],
+
+  "2": [{
+    "id": 1,
+    "name":"Helvecia"
+  },{
+    "id": 2,
+    "name":"Santa Fe"
+  },{
+    "id": 3,
+    "name": "Rosario"
+  },{
+    "id": 4,
+    "name": "San Vicente"
+  }],
+
+  "3":[{
+    "id": 1,
+    "name":"Trelew"
+  },{
+    "id": 2,
+    "name": "Comodoro Rivadavia"
+  },{
+    "id": 3,
+    "name": "Rawson"
+  }],
+
+  "5":[{
+    "id": 1,
+    "name": "La Rioja"
+  },{
+    "id": 2,
+    "name": "Anillaco"
+  }]
+}}

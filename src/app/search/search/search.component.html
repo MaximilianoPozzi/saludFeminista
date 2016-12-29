@@ -1,3 +1,36 @@
-<p>
-  search works!
-</p>
+<div id="search-feature">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="doctorName">Nombre</label>
+      <input type="text"
+             class="form-control"
+             id="doctorName"
+             formControlName="doctorName">
+    </div>
+    <p *ngIf="!validDoctorName" class="invalid">Completá este campo.</p>
+    <br>
+    <p>Provincia</p>
+    <div class="form-group">
+      <div *ngIf="provinces">
+        <select name="provinces"
+                class="form-control"
+                id="provinces"
+                formControlName="provinces">
+          <option *ngFor="let province of provinces" [ngValue]="province">{{province.name}}</option>
+        </select>
+      </div>
+    </div>
+    <p *ngIf="!validProvince" class="invalid">Seleccioná una provincia.</p>
+    <br>
+    <p>Localidad</p>
+    <div class="form-group">
+      <select name="cityNames"
+              class="form-control"
+              id="cityNames"
+              formControlName="cities">
+        <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
+      </select>
+    </div>
+    <button role="button" type="submir" class="btn btn-purple" [disabled]="validForm">Buscar</button>
+  </form>
+</div>

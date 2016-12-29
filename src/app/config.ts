@@ -1,6 +1,10 @@
 export let CONFIG = {
   baseUrls: {
     bestRatedDoctors: 'api/best-rated.json',
-    latestOpinions: 'api/latest-opinions.json'
+    cities: "api/cities.json",
+    doctor: 'api/doctor.json',
+    latestOpinions: 'api/latest-opinions.json',
+    provinces: 'api/provinces.json',
+    results: 'api/results.json'
   }
 }
