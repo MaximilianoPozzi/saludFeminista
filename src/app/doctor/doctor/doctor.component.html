@@ -1,3 +1,10 @@
-<p>
-  doctor works!
-</p>
+<div id="doctor-feature">
+  <div *ngIf="doctor">
+    <p>{{doctor.name}}</p>
+    <p>{{doctor.city}}, {{doctor.province}}</p>
+    <p>Calificación: {{doctor.avgRating}}</p>
+    <p>Cantidad de calificaciones: {{doctor.ratingsNum}}</p>
+    <br><br><br>
+    <app-rating *ngFor="let rating of doctor.ratingsAndCommentaries" [rating]="rating"></app-rating>
+  </div>
+</div>

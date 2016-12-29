@@ -6,6 +6,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {ContactFormComponent} from "./contact-form/contact-form.component";
 import {SentFormComponent} from './sent-form/sent-form.component';
+import {ContactService} from "./contact.service";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,9 @@ import {SentFormComponent} from './sent-form/sent-form.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes)
+  ],
+  providers: [
+    ContactService
   ]
 })
 

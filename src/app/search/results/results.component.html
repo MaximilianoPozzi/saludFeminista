@@ -1,3 +1,8 @@
-<p>
-  results works!
-</p>
+<div id="results-feature">
+  <div *ngIf="results">
+    <h6>Se encontraron {{results.length}} resultados.</h6>
+    <div class="results">
+      <app-result *ngFor="let result of results" [doctor]="result"></app-result>
+    </div>
+  </div>
+</div>

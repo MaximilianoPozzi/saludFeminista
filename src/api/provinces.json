@@ -1,0 +1,17 @@
+{"provinces":[{
+    "id": 1,
+    "name":"Córdoba"
+  },{
+    "id": 2,
+    "name": "Santa Fe"
+  },{
+    "id": 3,
+    "name": "Chubut"
+  },{
+    "id": 4,
+    "name": "Tierra del Fuego"
+  },{
+    "id": 5,
+    "name": "La Rioja"
+  }]
+}
