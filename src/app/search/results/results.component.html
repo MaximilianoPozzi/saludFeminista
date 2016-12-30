@@ -4,5 +4,7 @@
     <div class="results">
       <app-result *ngFor="let result of results" [doctor]="result"></app-result>
     </div>
+    <h4>¿No encontraste al doctor que buscabas?</h4>
+    <button role="button" class="btn btn-purple btn-lg" (click)="goToNewDoctor()">Agregar doctor</button>
   </div>
 </div>

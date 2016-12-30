@@ -4,6 +4,6 @@ import {SentFormComponent} from "./sent-form/sent-form.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'form'},
-  {path: 'form', component: ContactFormComponent},
-  {path: 'sent', component: SentFormComponent}
+  {path: 'formulario', component: ContactFormComponent},
+  {path: 'enviado', component: SentFormComponent}
 ]

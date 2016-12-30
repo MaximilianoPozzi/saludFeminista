@@ -13,7 +13,11 @@ export class ResultComponent {
   constructor(private router: Router) { }
 
   onClick(){
-    this.router.navigate(['doctor', this.doctor.id])
+    this.router.navigate(['doctor', this.doctor.id]);
+  }
+
+  goToQualify(id){
+    this.router.navigate(['doctor', 'calificar', id]);
   }
 
 }

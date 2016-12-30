@@ -26,4 +26,8 @@ export class ResultsComponent{
 
   }
 
+  goToNewDoctor(){
+    this.router.navigate(['doctor', 'nuevo']);
+  }
+
 }

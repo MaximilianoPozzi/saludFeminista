@@ -54,8 +54,6 @@ export class SearchComponent implements OnDestroy{
   }
 
   onSubmit(){
-    console.log(this.searchForm);
-    console.log(this.searchForm.controls['provinces']);
     if(this.searchForm.valid){
       this.router.navigate(['busqueda', 'resultados'], {queryParams: {
         nombre: this.searchForm.controls['doctorName'].value,

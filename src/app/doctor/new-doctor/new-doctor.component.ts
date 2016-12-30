@@ -12,6 +12,7 @@ export class NewDoctorComponent{
 
   private errorMessage;
   private newDoctorForm: FormGroup;
+  private validForm: boolean;
 
   constructor(private doctorService: DoctorService, private formBuilder: FormBuilder, private router: Router) {
     this.newDoctorForm = formBuilder.group({
@@ -25,6 +26,7 @@ export class NewDoctorComponent{
       'userEMail': ['', [Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]]
     })
   }
+
 
   onSubmit(){
     if(this.newDoctorForm.valid){
