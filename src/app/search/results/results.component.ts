@@ -11,6 +11,7 @@ import {Subscription} from "rxjs";
 export class ResultsComponent{
 
   private id: number;
+  private foundResults: boolean;
   private results;
   private routerSubscription : Subscription;
 
@@ -19,9 +20,10 @@ export class ResultsComponent{
       this.id = param['id']
     );
     this.routerSubscription = this.router.events.subscribe(val =>
-      this.searchService.queryResults(this.id).subscribe(results =>
-          this.results = results
-      )
+      this.searchService.queryResults(this.id).subscribe(results => {
+        this.results = results;
+        this.foundResults = (results.length !== 0);
+      })
     )
 
   }

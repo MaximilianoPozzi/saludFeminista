@@ -1,7 +1,7 @@
 <div id="search-feature">
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="doctorName">Nombre</label>
+      <label for="doctorName">Nombre <span class="required">*</span></label>
       <input type="text"
              class="form-control"
              id="doctorName"
@@ -9,7 +9,7 @@
     </div>
     <p *ngIf="!validDoctorName" class="invalid">Completá este campo.</p>
     <br>
-    <p>Provincia</p>
+    <p>Provincia <span class="required">*</span></p>
     <div class="form-group">
       <div *ngIf="provinces">
         <select name="provinces"
@@ -31,6 +31,9 @@
         <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
       </select>
     </div>
+    <br>
+    <p><span class="required">*</span>Campos obligatorios</p>
+    <br>
     <button role="button" type="submir" class="btn btn-purple">Buscar</button>
   </form>
 </div>

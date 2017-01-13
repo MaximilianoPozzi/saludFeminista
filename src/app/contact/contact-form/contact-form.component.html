@@ -4,7 +4,7 @@
 
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="name">Nombre</label>
+        <label for="name">Nombre <span class="required">*</span></label>
         <input type="text"
                class="form-control"
                id="name"
@@ -12,7 +12,7 @@
       </div>
       <p *ngIf="emptyName">Usted debe completar este campo.</p>
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">Email <span class="required">*</span></label>
         <input type="text"
                class="form-control"
                id="email"
@@ -22,7 +22,7 @@
       <p *ngIf="invalidEmail">Por favor ingrese un formato válido de mail.</p>
       <div class="form-group">
         <div id="messageTextArea">
-          <label for="message" id="messageLabel">Mensaje</label>
+          <label for="message" id="messageLabel">Mensaje <span class="required">*</span></label>
           <textarea name="message"
                     placeholder="Ingrese su mensaje aquí..."
                     id="message"

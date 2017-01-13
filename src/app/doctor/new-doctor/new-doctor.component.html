@@ -4,33 +4,41 @@
 
     <form [formGroup]="newDoctorForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="name">Nombre del doctor</label>
+        <label for="name">Nombre del doctor <span class="required">*</span></label>
         <input type="text"
                class="form-control"
                id="name"
                formControlName="name">
       </div>
+      <p *ngIf="emptyName" class="invalid">Usted debe completar este campo</p>
+      <br>
       <div class="form-group">
-        <label for="province">Provincia</label>
+        <label for="province">Provincia <span class="required">*</span></label>
         <input type="text"
                class="form-control"
                id="province"
                formControlName="province">
       </div>
+      <p *ngIf="emptyProvince" class="invalid">Usted debe completar este campo</p>
+      <br>
       <div class="form-group">
-        <label for="city">Localidad</label>
+        <label for="city">Localidad <span class="required">*</span></label>
         <input type="text"
                class="form-control"
                id="city"
                formControlName="city">
       </div>
+      <p *ngIf="emptyCity" class="invalid">Usted debe completar este campo</p>
+      <br>
       <div class="form-group">
-        <label for="speciality">Especialidad</label>
+        <label for="speciality">Especialidad <span class="required">*</span></label>
         <input type="text"
                class="form-control"
                id="speciality"
                formControlName="speciality">
       </div>
+      <p *ngIf="emptySpeciality" class="invalid">Usted debe completar este campo</p>
+      <br>
       <div class="form-group">
         <label for="procedure">Procedimiento</label>
         <input type="text"
@@ -39,7 +47,7 @@
                formControlName="procedure">
       </div>
       <div class="form-group">
-        <label for="rating">Calificación</label>
+        <label for="rating">Calificación <span class="required">*</span></label>
         <select name="rating"
                 class="form-control"
                 id="rating"
@@ -57,22 +65,30 @@
           <option value="5">5</option>
         </select>
       </div>
+      <p *ngIf="emptyRating" class="invalid">Usted debe seleccionar una calificación</p>
+      <br>
       <div class="form-group">
-        <label for="commentary">Comentario</label>
+        <label for="commentary">Comentario <span class="required">*</span></label>
           <textarea name="commentary"
                     placeholder="Ingrese su comentario aquí..."
                     formControlName="commentary"
                     id="commentary"
                     cols="65" rows="10"></textarea>
       </div>
+      <p *ngIf="emptyCommentary" class="invalid">Usted debe completar este campo</p>
+      <br>
       <div class="form-group">
-        <label for="userEMail">Tu dirección de correo electrónico</label>
+        <label for="userEMail">Tu dirección de correo electrónico <span class="required">*</span></label>
         <input type="text"
                class="form-control"
                id="userEMail"
                formControlName="userEMail">
       </div>
-
+      <p *ngIf="emptyUserEMail" class="invalid">Usted debe completar este campo</p>
+      <p *ngIf="validUserEMail" class="invalid">Formato de email no válido</p>
+      <br>
+      <p><span class="required">*</span> Campos obligatorios</p>
+      <br>
       <button type="submit" role="button" class="btn btn-purple">Enviar</button>
     </form>
 
