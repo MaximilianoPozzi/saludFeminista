@@ -14,7 +14,7 @@ export class SearchService{
   }
 
   getProvinces(){
-    return this.http.get("http://localhost:3000/provincias")
+    return this.http.get(CONFIG.baseUrls.provinces)
       .map(response => response.json().provinces);
   }
 
