@@ -15,7 +15,7 @@ import {SearchService} from "./search.service";
   declarations: [
     SearchComponent,
     ResultsComponent,
-    ResultComponent
+    ResultComponent,
   ],
   imports:[
     CommonModule,

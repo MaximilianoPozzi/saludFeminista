@@ -49,9 +49,6 @@ export class SearchComponent implements OnDestroy{
     this.routerSubscription.unsubscribe();
   }
 
-  onNavigate(){
-    this.router.navigate(['/'], {queryParams:{one: 1, two: 2}})
-  }
 
   onSubmit(){
     if(this.searchForm.valid){

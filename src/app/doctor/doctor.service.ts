@@ -25,6 +25,16 @@ export class DoctorService{
       .catch(this.handleError);
   }
 
+  sendRating(newRating: any){
+    const body = JSON.stringify(newRating);
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('', body, {
+      headers: headers
+    }).map((response: Response)=> response.json())
+      .catch(this.handleError);
+  }
+
   private handleError(error: Response){
     let msg = `Status code ${error.status} on url ${error.url}`;
     console.log(msg);
