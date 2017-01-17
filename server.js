@@ -26,5 +26,5 @@ app.get('*', (req, res) => {
 
 //comienza a escuchar en el puerto
 app.listen(app.get('port'), function(){
-    console.log('Servidor escuchando en: http://localhost:' + app.get('port'));
+  console.log('Servidor escuchando en: http://localhost:' + app.get('port'));
 });

@@ -1,7 +1,8 @@
 {
-  "name": "salud-feminista",
+  "name": "salud-para-todxs",
   "version": "0.0.0",
   "license": "MIT",
+"main": "server.js",
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
@@ -20,7 +21,11 @@
     "@angular/platform-browser": "~2.1.0",
     "@angular/platform-browser-dynamic": "~2.1.0",
     "@angular/router": "~3.1.0",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
+    "express": "^4.14.0",
+    "mysql": "^2.12.0",
     "rxjs": "5.0.0-beta.12",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.6.23"
@@ -44,3 +49,7 @@
     "webdriver-manager": "10.2.5"
   }
 }
+
+
+
+

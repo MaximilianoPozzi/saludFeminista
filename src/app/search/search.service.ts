@@ -9,18 +9,18 @@ export class SearchService{
   constructor(private http: Http){}
 
   getCitiesByProvince(id: number){
-    return this.http.get(CONFIG.baseUrls.cities)
-      .map(response => response.json().citiesByProvince[id.toString()]);
+    return this.http.get('/localidades/'+id.toString())
+      .map(response => response.json().Localidades);
   }
 
   getProvinces(){
-    return this.http.get(CONFIG.baseUrls.provinces)
-      .map(response => response.json().provinces);
+    return this.http.get('/provincias')
+      .map(response => response.json().Provincias);
   }
 
-  queryResults(id: number){
-    return this.http.get(CONFIG.baseUrls.results)
-      .map(response => response.json().results);
+  queryResults(nombre:string,idLocalidad:number,idProvincia:number){
+    return this.http.get('/profesionalesfiltro/nombreapellido/'+nombre+'/localidad/'+idLocalidad+'/provincia/'+idProvincia)
+      .map(response => response.json().Profesionales);
   }
 
 }

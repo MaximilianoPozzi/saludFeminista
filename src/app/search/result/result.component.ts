@@ -8,7 +8,8 @@ import {Router} from "@angular/router";
 })
 export class ResultComponent {
   @Input() doctor;
-
+  private valoracionProm: number;
+  private valoracionCant: number;
 
   constructor(private router: Router) { }
 

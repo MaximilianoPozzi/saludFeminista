@@ -16,7 +16,7 @@
                 class="form-control"
                 id="provinces"
                 formControlName="provinces">
-          <option *ngFor="let province of provinces" [ngValue]="province">{{province.name}}</option>
+          <option *ngFor="let province of provinces" [ngValue]="province">{{province.nombre}}</option>
         </select>
       </div>
     </div>
@@ -28,9 +28,10 @@
               class="form-control"
               id="cityNames"
               formControlName="cities">
-        <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
+        <option *ngFor="let city of cities" [ngValue]="city">{{city.nombre}}</option>
       </select>
     </div>
-    <button role="button" type="submir" class="btn btn-purple" [disabled]="validForm">Buscar</button>
+    <button role="button" type="submir" class="btn btn-purple">Buscar</button>
   </form>
 </div>
+

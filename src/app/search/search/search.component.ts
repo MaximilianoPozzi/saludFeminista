@@ -23,8 +23,8 @@ export class SearchComponent implements OnDestroy{
 
   constructor(private formBuilder: FormBuilder, private router: Router, private searchService: SearchService) {
     this.routerSubscription = this.router.events.subscribe(val =>
-      this.searchService.getProvinces().subscribe(provinces =>
-        this.provinces = provinces
+      this.searchService.getProvinces().subscribe(Provincias =>
+        this.provinces = Provincias
       )
     );
 
@@ -54,8 +54,6 @@ export class SearchComponent implements OnDestroy{
   }
 
   onSubmit(){
-    console.log(this.searchForm);
-    console.log(this.searchForm.controls['provinces']);
     if(this.searchForm.valid){
       this.router.navigate(['busqueda', 'resultados'], {queryParams: {
         nombre: this.searchForm.controls['doctorName'].value,
@@ -70,8 +68,8 @@ export class SearchComponent implements OnDestroy{
   }
 
   setCities(id:number){
-    this.citiesSubscription = this.searchService.getCitiesByProvince(id).subscribe(cities =>
-      this.cities = cities
+    this.citiesSubscription = this.searchService.getCitiesByProvince(id).subscribe(Localidades =>
+      this.cities = Localidades
     )
   }
 

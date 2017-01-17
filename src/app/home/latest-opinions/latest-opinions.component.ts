@@ -15,8 +15,8 @@ export class LatestOpinionsComponent implements OnDestroy{
 
   constructor(private homeService: HomeService, private router: Router) {
     this.routerSubscription = this.router.events.subscribe((val) =>
-      this.homeService.getLatestOpinions().subscribe(latestOpinions =>
-        this.latestOpinions = latestOpinions
+      this.homeService.getLatestOpinions().subscribe(Profesionales =>
+        this.latestOpinions = Profesionales
       )
     )
   }

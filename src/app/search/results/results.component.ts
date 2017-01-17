@@ -10,20 +10,27 @@ import {Subscription} from "rxjs";
 })
 export class ResultsComponent{
 
-  private id: number;
+  private nombre: string;
+  private idLocalidad:number;
+  private idProvincia: number;
   private results;
   private routerSubscription : Subscription;
 
   constructor(private activatedRoute: ActivatedRoute, private searchService: SearchService, private router: Router) {
-    this.activatedRoute.params.subscribe(param =>
-      this.id = param['id']
+    this.activatedRoute.queryParams.subscribe(param =>
+      {this.nombre = param['nombre'];
+      this.idLocalidad=param['idLocalidad'];
+      this.idProvincia=param['idProvincia'];
+      console.log(this.nombre+' '+this.idLocalidad+' '+ this.idProvincia)
+
+      }
     );
+
     this.routerSubscription = this.router.events.subscribe(val =>
-      this.searchService.queryResults(this.id).subscribe(results =>
-          this.results = results
+      this.searchService.queryResults(this.nombre, this.idLocalidad, this.idProvincia).subscribe(Profesionales =>
+          this.results = Profesionales
       )
     )
 
   }
-
 }

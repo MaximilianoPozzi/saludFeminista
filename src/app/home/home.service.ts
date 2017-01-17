@@ -9,12 +9,13 @@ export class HomeService {
   constructor( private http: Http ) {}
 
   getBestRatedDoctors(){
-    return this.http.get(CONFIG.baseUrls.bestRatedDoctors)
-      .map(response => response.json().doctors);
+    return this.http.get('/ultimasValoraciones')
+      .map(response => response.json().Profesionales);
   }
 
   getLatestOpinions(){
-    return this.http.get(CONFIG.baseUrls.latestOpinions)
-      .map(response => response.json().opinions);
+    return this.http.get('/ultimosComentarios')
+      .map(response => response.json().Profesionales);
+
   }
 }
