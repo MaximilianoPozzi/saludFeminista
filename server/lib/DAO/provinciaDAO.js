@@ -8,7 +8,6 @@ var connection = mysql.createConnection({
   database : 'SaludFeminista',
 });
 
-
 module.exports.provincias= function (callback) {
   var data = {
     "error":1,
@@ -33,8 +32,7 @@ module.exports.provincias= function (callback) {
            data["Provincias"] = 'No hay provincias';
           callback(data);
     }}
-  });
-
+  })
     }
 
 

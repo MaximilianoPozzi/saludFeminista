@@ -12,4 +12,8 @@ module.exports.getValoracionPromedio = function(params, callback){
   valoracionesDAO.valoracionPromedioProfesional(params.idprofesional, callback);
 }
 
+module.exports.postValoracion = function(body, callback){
+  console.log("Agregar nueva valoracion " );
+  valoracionesDAO.agregarValoracion(body, callback);
+}
 

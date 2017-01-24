@@ -1,7 +1,6 @@
 
 var mysql = require('mysql');
 
-
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -16,11 +15,10 @@ module.exports.localidadesProvincia = function(idprovincia, callback){
     "Localidades":""
   };
 
+
   //hace un select de la bd y lo carga el data en json
 
-
-  //FALTA PASARLO COMO PARAMETRO DE MYSQL!!!
-  connection.query("select id, nombre from Localidad where activo=1 and  idProvincia="+idprovincia,function(err, rows, fields){
+  connection.query("select id, nombre from Localidad where activo=1 and  idProvincia=?",[idprovincia],function(err, rows, fields){
 
     if(err)
     {

@@ -1,0 +1,2 @@
+{"idTitulacion":2,"nombre":"nnn","apellido":"aaaa","mail": "mdo@kfo", "idLocalidad": 2, "valoraciones":[{"idValoracion":1,"comentario":"comentariooo"}, {"idValoracion":4,"comentario":"comentariooowwww"}], "direcciones":[{"idProfesional":10,"direccion":"afasd", "nombreLugar":"fads", "descripcion":"des","esPrivado":1,"mail":"ais", "telefonos":[{"telefono":12322}]}], "obrasSociales":[{"obraSocial":"asd", "plan":"sda"}], "especialidades":[{"idEspecialidad":1, "idProcedimiento":1}] }
+
