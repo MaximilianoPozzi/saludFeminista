@@ -13,13 +13,16 @@ export class BestRatedDoctorsComponent implements OnDestroy{
   private bestDoctors;
   private routerSubscription: Subscription;
 
+
   constructor( private homeService: HomeService, private router: Router ) {
     this.routerSubscription = this.router.events.subscribe((val) =>
-      this.homeService.getBestRatedDoctors().subscribe(bestDoctors =>
+      this.homeService.getBestReatedDoctors().subscribe(bestDoctors =>
         this.bestDoctors = bestDoctors
       )
     )
+
   }
+
 
   ngOnDestroy() {
     this.routerSubscription.unsubscribe();

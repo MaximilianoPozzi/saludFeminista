@@ -5,6 +5,7 @@ var profesionalDAO = require("../DAO/profesionalDAO");
 module.exports.getProfesionales=function (callback) {
   console.log("Profesionales");
   profesionalDAO.profesionales(callback);
+
 }
 
 module.exports.getUltimosAgregados=function (callback) {

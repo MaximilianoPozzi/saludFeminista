@@ -1,38 +1,55 @@
 <div id="contact-form">
   <div id="container">
-    <p>Complete los campos a continuación:</p>
+    <br>
+    <h2 class="titulo"> Formulario de contacto</h2>
+    <h4 class="parrafo">Completá los campos a continuación:</h4>
+<br>
+    <form class="row" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="name">Nombre <span class="required">*</span></label>
+      <div class="form-group col-sm-8 parrafo pull-sm-left">
+        <label for="name" class="parrafo ">Nombre: <span class="required">*</span></label>
         <input type="text"
                class="form-control"
+               maxlength="20"
                id="name"
+               placeholder="Nombre"
                formControlName="name">
+        <p *ngIf="emptyName" class="parrafo">Completá este campo.</p>
       </div>
-      <p *ngIf="emptyName">Usted debe completar este campo.</p>
-      <div class="form-group">
-        <label for="email">Email <span class="required">*</span></label>
+
+      <div class="col-sm-2"></div>
+      <div class="form-group col-sm-8 parrafo pull-sm-left">
+        <label class="parrafo pull-left" for="email">Email <span class="required">*</span></label>
         <input type="text"
                class="form-control"
                id="email"
+               placeholder="mail@dominio.com.ar"
+               maxlength="20"
                formControlName="email">
+        <p *ngIf="emptyEMail" class="parrafo">Completá este campo.</p>
+        <p *ngIf="invalidEmail" class="parrafo">Formato inválido de mail.</p>
       </div>
-      <p *ngIf="emptyEMail">Usted debe completar este campo.</p>
-      <p *ngIf="invalidEmail">Por favor ingrese un formato válido de mail.</p>
-      <div class="form-group">
+      <div class="col-sm-2"></div>
+
+      <div class="form-group col-sm-8 parrafo pull-sm-left">
         <div id="messageTextArea">
-          <label for="message" id="messageLabel">Mensaje <span class="required">*</span></label>
-          <textarea name="message"
-                    placeholder="Ingrese su mensaje aquí..."
+          <label for="message" class="parrafo" id="messageLabel">Mensaje <span class="required">*</span></label>
+          <textarea class="parrafo"
+                    name="message"
+                    placeholder="Ingresá tu mensaje acá..."
                     id="message"
                     formControlName="message"
+                    minlength="20"
                     cols="65" rows="10"></textarea>
         </div>
+        <p *ngIf="longEnoughMessage">Escribí al menos 20 caracteres.</p>
       </div>
-      <p *ngIf="longEnoughMessage">Usted debe escribir al menos 20 caracteres.</p>
+      <div class="col-sm-2"></div>
 
-      <button type="submit" role="button" class="btn btn-purple btn-lg">Enviar</button>
+      <div class="col-sm-4"></div>
+<div class="parrafo col-sm-3">
+      <button type="submit" role="button" class="btn btn-purple btn-lg parrafo">Enviar</button>
+</div>
     </form>
 
   </div>

@@ -10,6 +10,8 @@ import { BestRatedDoctorComponent } from './best-rated-doctor/best-rated-doctor.
 import { LatestOpinionComponent } from './latest-opinion/latest-opinion.component';
 import { LatestOpinionsComponent } from "./latest-opinions/latest-opinions.component";
 import { HomeComponent } from "./home/home.component";
+import { LatestProfesionalComponent} from './latest-profesional/latest-profesional.component';
+import { LatestProfesionalsComponent } from './latest-profesionals/latest-profesionals.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { HomeComponent } from "./home/home.component";
     HomeComponent,
     LatestOpinionsComponent,
     LatestOpinionComponent,
+    LatestProfesionalComponent,
+    LatestProfesionalsComponent,
   ],
   imports: [
     CommonModule,

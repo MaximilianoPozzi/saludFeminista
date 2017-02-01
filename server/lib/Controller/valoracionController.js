@@ -7,6 +7,11 @@ module.exports.getUltimasValoraciones=function (callback) {
   valoracionesDAO.ultimasValoracionesProfesional(callback);
 }
 
+module.exports.getMejoresValoraciones=function (callback) {
+  console.log("Mejores Valoraciones");
+  valoracionesDAO.mejoresValoracionesProfesional(callback);
+}
+
 module.exports.getValoracionPromedio = function(params, callback){
   console.log("Valoracion Promedio de : " + params.idprofesional);
   valoracionesDAO.valoracionPromedioProfesional(params.idprofesional, callback);

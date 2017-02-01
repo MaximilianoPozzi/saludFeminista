@@ -245,6 +245,8 @@ DROP TABLE IF EXISTS `Profesional`;
 CREATE TABLE `Profesional` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idTitulacion` int(11) NOT NULL DEFAULT '5',
+  `promedioCalificaciones` float DEFAULT '0',
+  `cantidadCalificaciones` int(11) DEFAULT '0',
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `mail` varchar(50) DEFAULT NULL,
@@ -267,7 +269,7 @@ CREATE TABLE `Profesional` (
 
 LOCK TABLES `Profesional` WRITE;
 /*!40000 ALTER TABLE `Profesional` DISABLE KEYS */;
-INSERT INTO `Profesional` VALUES (1,1,'Nombre1','Apellido1',NULL,1,'\0','','2016-12-03 02:12:38'),(2,2,'Nombre2','Apellido3',NULL,2,'\0','','2016-12-03 02:12:50'),(3,5,'Nombre3','Apellido4',NULL,3,'\0','','2016-12-03 02:15:18'),(4,1,'nombrenvo','apellidonvo','mail',1,'\0','','2017-01-23 21:57:05'),(5,1,'nom','app','algo@algo',1,'\0','','2017-01-23 22:06:57'),(7,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-23 23:30:03'),(8,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 00:15:12'),(9,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 00:16:38'),(10,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 00:17:42'),(11,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 01:14:12'),(12,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 01:27:22'),(13,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 01:49:02'),(14,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 01:50:40');
+INSERT INTO `Profesional` VALUES (1,1,2.3333,3,'Nombre1','Apellido1',NULL,1,'\0','','2016-12-03 02:12:38'),(2,2,3.5,2,'Nombre2','Apellido3',NULL,2,'\0','','2016-12-03 02:12:50'),(3,5,2,2,'Nombre3','Apellido4',NULL,3,'\0','','2016-12-03 02:15:18'),(4,1,0,0,'nombrenvo','apellidonvo','mail',1,'\0','','2017-01-23 21:57:05'),(5,1,0,0,'nom','app','algo@algo',1,'\0','','2017-01-23 22:06:57'),(7,2,0,0,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-23 23:30:03'),(8,2,0,0,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 00:15:12'),(9,2,0,0,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 00:16:38'),(10,2,2.5,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 00:17:42'),(11,2,2.5,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 01:14:12'),(12,2,2.5,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 01:27:22'),(13,2,2.5,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 01:49:02'),(14,2,2.5,2,'nnn','aaaa','mdo@kfo',2,'\0','','2017-01-24 01:50:40');
 /*!40000 ALTER TABLE `Profesional` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -370,6 +372,7 @@ CREATE TABLE `ValoracionXProfesional` (
   `idProfesional` int(11) NOT NULL,
   `idValoracion` int(11) NOT NULL,
   `comentario` varchar(200) DEFAULT NULL,
+  `moderado` bit(1) NOT NULL DEFAULT b'0',
   `activo` bit(1) NOT NULL DEFAULT b'1',
   `fechaDeAlta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -387,7 +390,7 @@ CREATE TABLE `ValoracionXProfesional` (
 
 LOCK TABLES `ValoracionXProfesional` WRITE;
 /*!40000 ALTER TABLE `ValoracionXProfesional` DISABLE KEYS */;
-INSERT INTO `ValoracionXProfesional` VALUES (1,1,1,'comentario1','','2016-12-03 02:52:01'),(2,2,2,'comentario2','','2016-12-03 02:52:05'),(3,3,3,'comentario3','','2016-12-03 02:52:09'),(4,1,4,'comentario4','','2016-12-03 02:52:22'),(5,2,5,'comentario5','','2016-12-03 02:52:27'),(6,3,1,'comentario6','','2016-12-03 02:52:32'),(7,1,2,'ksdnkaksds','','2017-01-23 23:59:36'),(8,10,1,'comentariooo','','2017-01-24 00:17:42'),(9,10,4,'comentariooowwww','','2017-01-24 00:17:42'),(10,11,1,'comentariooo','','2017-01-24 01:14:12'),(11,11,4,'comentariooowwww','','2017-01-24 01:14:12'),(12,12,1,'comentariooo','','2017-01-24 01:27:22'),(13,12,4,'comentariooowwww','','2017-01-24 01:27:22'),(14,13,1,'comentariooo','','2017-01-24 01:49:02'),(15,13,4,'comentariooowwww','','2017-01-24 01:49:02'),(16,14,1,'comentariooo','','2017-01-24 01:50:40'),(17,14,4,'comentariooowwww','','2017-01-24 01:50:40');
+INSERT INTO `ValoracionXProfesional` VALUES (1,1,1,'comentario1','\0','','2016-12-03 02:52:01'),(2,2,2,'comentario2','\0','','2016-12-03 02:52:05'),(3,3,3,'comentario3','\0','','2016-12-03 02:52:09'),(4,1,4,'comentario4','\0','','2016-12-03 02:52:22'),(5,2,5,'comentario5','\0','','2016-12-03 02:52:27'),(6,3,1,'comentario6','\0','','2016-12-03 02:52:32'),(7,1,2,'ksdnkaksds','\0','','2017-01-23 23:59:36'),(8,10,1,'comentariooo','\0','','2017-01-24 00:17:42'),(9,10,4,'comentariooowwww','\0','','2017-01-24 00:17:42'),(10,11,1,'comentariooo','\0','','2017-01-24 01:14:12'),(11,11,4,'comentariooowwww','\0','','2017-01-24 01:14:12'),(12,12,1,'comentariooo','\0','','2017-01-24 01:27:22'),(13,12,4,'comentariooowwww','\0','','2017-01-24 01:27:22'),(14,13,1,'comentariooo','\0','','2017-01-24 01:49:02'),(15,13,4,'comentariooowwww','\0','','2017-01-24 01:49:02'),(16,14,1,'comentariooo','\0','','2017-01-24 01:50:40'),(17,14,4,'comentariooowwww','\0','','2017-01-24 01:50:40');
 /*!40000 ALTER TABLE `ValoracionXProfesional` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -428,4 +431,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-23 22:54:16
+-- Dump completed on 2017-01-31 22:54:23

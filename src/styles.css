@@ -4,7 +4,25 @@
 {
 
 }
+.error
+{
+  color:red;
+  font-family: 'Poppins', sans-serif;
+}
+.titulo
 
+{
+font-family: 'Poppins', sans-serif;
+color: black;
+  font-weight: bold;
+}
+
+
+.parrafo
+{
+font-family: 'Poppins', sans-serif;
+color: black;
+}
 .btn-purple {
   color: #ffffff;
   background-color: #4D0CA3;

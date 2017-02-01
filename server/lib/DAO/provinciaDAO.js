@@ -29,7 +29,7 @@ module.exports.provincias= function (callback) {
           data["Provincias"] = rows;
           callback(data);
           }else{
-           data["Provincias"] = 'No hay provincias';
+            data["error"]=0;
           callback(data);
     }}
   })

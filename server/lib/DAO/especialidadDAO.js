@@ -21,7 +21,7 @@ module.exports.especialidades= function (callback) {
     {
       console.log(err);
       data["Especialidades"]='Error al acceder a la base de datos';
-      callback(data);
+      callback(err);
     }
     else {
       if(rows.length != 0){
@@ -29,7 +29,7 @@ module.exports.especialidades= function (callback) {
         data["Especialidades"] = rows;
         callback(data);
       }else{
-        data["Especialidades"] = 'No hay provincias';
+
         callback(data);
       }}
   })

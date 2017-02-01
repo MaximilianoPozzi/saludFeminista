@@ -1,0 +1,15 @@
+{"doctors": [{
+  "name":"Juan Perez",
+  "ratingsNum": 5,
+  "avgRating": 4.7
+}, {
+  "name": "Rodrigo Gonzalez",
+  "ratingsNum": 3,
+  "avgRating": 4.3
+},{
+  "name": "Miguel Angel Roguisi",
+  "ratingsNum": 2,
+  "avgRating": 4.2
+}]
+
+}

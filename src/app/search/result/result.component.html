@@ -1,8 +1,11 @@
-<div class="result">
+<br>
+<div class="result"  class="parrafo">
   <a (click)="onClick()">
-    <p>{{doctor.nombre}}</p>
+    <p class="titulo a">{{doctor.titulacion}} {{doctor.nombre}} {{doctor.apellido}}</p>
   </a>
+  <p>{{doctor.especialidad}}</p>
   <p>{{doctor.localidad}}, {{doctor.provincia}}</p>
-  <!-- <p>Calificación promedio: {{doctor.avgRating}}</p>
-   <p>Cantidad de calificaciones: {{doctor.ratingsNum}}</p>-->
+   <p *ngFor="let valor of valoracion" >Calificación promedio: {{valor.promedio}} </p>
+  <p *ngFor="let valor of valoracion" >Cantidad de calificaciones: {{valor.cantidad}} </p>
  </div>
+<br>

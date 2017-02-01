@@ -1,6 +1,6 @@
-
+var valoracionesDAO = require("../DAO/valoracionDAO");
 var mysql = require('mysql');
-
+var deasync = require('deasync');
 var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
@@ -16,7 +16,7 @@ module.exports.profesionales= function (callback) {
 
 
  connection.query("SELECT p.id, t.nombre as 'titulacion', p.nombre, p.apellido from Profesional p, Titulacion t " +
-    "where p.idTitulacion=t.id and p.activo=1",function(err, rows, fields){
+    "where p.idTitulacion=t.id and p.activo=1",function(err, rows){
 
     if(err)
     {
@@ -29,15 +29,23 @@ module.exports.profesionales= function (callback) {
       if(rows.length != 0){
         data["error"] = 0;
         data["Profesionales"] = rows;
+
         callback(data);
-      }else{
+
+              }else{
         data["Profesionales"] = 'No hay profesionales';
         callback(data);
-      }}
-  });
+      }
 
+
+    }
+
+ });
 
 }
+
+
+
 
 module.exports.ultimosProfesionalesAgregados= function (callback) {
   var data = {
@@ -46,8 +54,9 @@ module.exports.ultimosProfesionalesAgregados= function (callback) {
   };
 
   //hace un select de la bd y lo carga el data en json
-  connection.query("select p.id, p.nombre, p.apellido, l.nombre as 'localidad', pr.nombre as 'provincia', p.fechaDeAlta  from Profesional p, Localidad l, Provincia pr" +
-    " where p.idLocalidad=l.id and l.idProvincia=pr.id and p.activo=1 " +
+  connection.query("select p.id, t.nombre as 'titulacion', p.nombre, p.apellido, l.nombre as 'localidad', pr.nombre as " +
+    "'provincia', p.fechaDeAlta  from Profesional p, Localidad l, Provincia pr, Titulacion t" +
+    " where p.idLocalidad=l.id and l.idProvincia=pr.id and p.activo=1 and p.idTitulacion=t.id " +
     "order by p.fechaDeAlta desc limit 4",function(err, rows, fields){
 
     if(err)
@@ -78,9 +87,10 @@ module.exports.profesionalfiltrado = function(nombreapellido,idlocalidad,idprovi
 
   //armar query
 
-  var sql = "select p.id, p.nombre, p.apellido, e.nombre as 'especialidad', pr.nombre as 'provincia', l.nombre as 'localidad' " +
-    "from Profesional p, Provincia pr, Localidad l, Especialidad e, EspecialidadXProfesional ep " +
-    "WHERE p.idLocalidad=l.id and l.idProvincia=pr.id and ep.idProfesional=p.id and e.id= ep.idEspecialidad "
+  var sql = "select DISTINCT p.id, t.nombre as 'titulacion', p.nombre, p.apellido, e.nombre as 'especialidad', pr.nombre as 'provincia', l.nombre as 'localidad' " +
+    "from Profesional p, Provincia pr, Localidad l, Especialidad e, EspecialidadXProfesional ep, Titulacion t " +
+    "WHERE p.idLocalidad=l.id and l.idProvincia=pr.id and ep.idProfesional=p.id and e.id= ep.idEspecialidad and " +
+    "p.idTitulacion=t.id and p.activo=1 "
   var inserts=[];
 
   if(nombreapellido!='all')
@@ -127,6 +137,7 @@ module.exports.profesionalfiltrado = function(nombreapellido,idlocalidad,idprovi
     else {
       if(rows.length != 0){
         data["error"] = 0;
+
         data["Profesionales"] = rows;
         callback(data);
       }else{
@@ -195,6 +206,29 @@ module.exports.agregarProfesional = function(body, callback){
                   callback(data);
                 });
               }
+      /*        else
+              {
+                var valoracion;
+                valoracionesDAO.valoracionPromedioProfesional(idProfesional, function(resultado){
+
+                  valoracion=resultado;
+                  connection.query('UPDATE  Profesional SET cantidadCalificaciones=?, promedioCalificaciones=? ' +
+                    'where id=?',
+                    [valoracion[0].cantidad,valoracion[0].promedio,idProfesional],
+                    function (err, result) {
+                      if (err) {
+                        connection.rollback(function () {
+                          console.log(err);
+                          data["Profesional"] = 'Error al intentar agregar unx nuevx profesional';
+                          callback(data);
+                        });
+                      }
+
+                    });
+                })
+
+
+              }*/
 
             });
 

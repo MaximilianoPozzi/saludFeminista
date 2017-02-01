@@ -14,8 +14,9 @@ module.exports.ultimasValoracionesProfesional = function (callback) {
     "Profesionales":""
   };
   //hace un select de la bd y lo carga el data en json
-  connection.query("select p.id, p.nombre, p.apellido, v.valor, vp.comentario,  v.fechaDeAlta  from  Profesional p, " +
-    "ValoracionXProfesional vp, Valoración v where vp.idProfesional=p.id and vp.idValoracion=v.id order by v.fechaDeAlta desc limit 4",
+  connection.query("select p.id,t.nombre as 'titulacion', p.nombre, p.apellido, v.valor, vp.comentario,  v.fechaDeAlta  " +
+    "from  Profesional p, Titulacion t, ValoracionXProfesional vp, Valoración v " +
+    "where vp.idProfesional=p.id and vp.idValoracion=v.id and p.idTitulacion=t.id and v.activo=1 and p.activo=1 order by v.fechaDeAlta desc limit 4",
 
     function(err, rows, fields){
     if(err)
@@ -37,6 +38,38 @@ module.exports.ultimasValoracionesProfesional = function (callback) {
 
 };
 
+
+
+module.exports.mejoresValoracionesProfesional = function (callback) {
+  var data = {
+    "error":1,
+    "Profesionales":""
+  };
+  //hace un select de la bd y lo carga el data en json
+  connection.query("select p.id,t.nombre as 'titulacion', p.nombre, p.apellido, p.promedioCalificaciones, " +
+    "p.cantidadCalificaciones from  Profesional p, Titulacion t " +
+    "where p.idTitulacion=t.id and p.activo=1 order by p.promedioCalificaciones desc limit 4",
+
+    function(err, rows, fields){
+      if(err)
+      {
+        console.log(err);
+        data["Profesionales"]='Error al acceder a la base de datos';
+        callback(data);
+      }
+      else {
+        if(rows.length != 0){
+          data["error"] = 0;
+          data["Profesionales"] = rows;
+          callback(data);
+        }else{
+          data["Profesionales"] = 'No hay profesionales';
+          callback(data);
+        }}
+    });
+
+};
+
 module.exports.valoracionPromedioProfesional = function(idprofesional, callback){
 
   var data = {
@@ -46,8 +79,8 @@ module.exports.valoracionPromedioProfesional = function(idprofesional, callback)
 
   //hace un select de la bd y lo carga el data en json
 
-  //FALTA PASARLO COMO PARAMETRO DE MYSQL!!!
-  connection.query("select p.id as 'idprofesional', avg(v.valor) as 'promedio', count(v.valor) as 'cantidad' FROM Profesional p, Valoración v, ValoracionXProfesional vp where vp.idProfesional=p.id and vp.idValoracion=v.id and p.id="+idprofesional,function(err, rows, fields){
+
+  connection.query("select p.id as 'idprofesional', avg(v.valor) as 'promedio', count(v.valor) as 'cantidad' FROM Profesional p, Valoración v, ValoracionXProfesional vp where vp.idProfesional=p.id and vp.idValoracion=v.id and p.id=?",[idprofesional],function(err, rows, fields){
 
     if(err)
     {
@@ -68,7 +101,6 @@ module.exports.valoracionPromedioProfesional = function(idprofesional, callback)
 
   })
 };
-
 
 module.exports.agregarValoracion= function(body, callback){
 
